@@ -38,10 +38,12 @@ By verifying the rank of a matrix formed from these operators, the code ensures 
 
 ### 3. Quantum State Tomography with MLE
 
-QST involves reconstructing the quantum state's density matrix, \( ho \), using measured data. In this implementation, MLE optimizes the likelihood function:
+QST involves reconstructing the quantum state's density matrix, \( 
+ho \), using measured data. In this implementation, MLE optimizes the likelihood function:
 
 $$
-\mathcal{L} = \sum_i \left( f_i^+ \log(p_i^+) + f_i^- \log(p_i^-) ight),
+\mathcal{L} = \sum_i \left( f_i^+ \log(p_i^+) + f_i^- \log(p_i^-) 
+ight),
 $$
 
 where:
@@ -50,7 +52,8 @@ where:
 - $p_i^+$ and $p_i^-$ are the corresponding Born probabilities, computed as:
 
 $$
-p_i = 	ext{Tr}(ho P_i).
+p_i = 	ext{Tr}(
+ho P_i).
 $$
 
 ### 4. Simulated Frequencies
