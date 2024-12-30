@@ -26,42 +26,32 @@ This repository implements Quantum State Tomography (QST) based on Maximum Likel
 
 ### 1. Pauli Operators
 The set of Pauli operators for \( L \)-qubit systems is generated as tensor products of the single-qubit Pauli matrices \( \{I, X, Y, Z\} \). These operators are normalized to ensure proper scaling:
-\[
-P_i \to \frac{P_i}{\sqrt{2^L}}
-\]
+$P_i \to \frac{P_i}{\sqrt{2^L}}$
 
 ### 2. Informational Completeness
-The code checks if the set of Pauli operators spans the full Hermitian space of dimension \( 4^L \) by verifying the rank of the operator matrix.
+The code checks if the set of Pauli operators spans the full Hermitian space of dimension $4^L$ by verifying the rank of the operator matrix.
 
 ### 3. Measurement Simulation
-Given a density matrix \( \rho \) and Pauli operators \( \{P_i\} \), measurement probabilities are computed using Born's rule:
-\[
-p_i = \text{Tr}(\rho P_i)
-\]
+Given a density matrix $\hat{\rho}$ and Pauli operators $\{\hat{P}_i\}$, measurement probabilities are computed using Born's rule:
+$p_i = \text{Tr}(\hat{\rho} \hat{P}_i)$
 Finite-statistics measurements simulate realistic outcomes by generating frequencies for outcomes \(+1\) and \(-1\).
 
 ### 4. Maximum Likelihood Estimation
 MLE is used to reconstruct the density matrix from simulated measurement data. Two parameterizations are implemented:
 - **Cholesky Parameterization**:
-  The density matrix is expressed as \( \rho = A A^\dagger \), ensuring positivity inherently.
+  The density matrix is expressed as $\hat{\rho} = \hat{A} \hat{A}^\dagger$, ensuring positivity inherently.
 
 The likelihood function is:
-\[
-\mathcal{L} = \sum_i \left( f_i^+ \log(p_i^+) + f_i^- \log(p_i^-) \right)
-\]
-where \( f_i^+ \) and \( f_i^- \) are the observed frequencies for outcomes \(+1\) and \(-1\), respectively.
+$\mathcal{L} = \sum_i \left( f_i^+ \log(p_i^+) + f_i^- \log(p_i^-) \right)$
+where $f_i^+$ and $f_i^-$ are the observed frequencies for outcomes $+1$ and $-1$, respectively.
 
 ### 5. Validation Metrics
 - **Trace Distance**:
-\[
-D(\rho_1, \rho_2) = \frac{1}{2} \text{Tr}|\rho_1 - \rho_2|
-\]
+$D(\hat{\rho}_1, \hat{\rho}_2) = \frac{1}{2} \text{Tr}|\hat{\rho}_1 - \hat{\rho}_2|$
 
 ### 6. Special Quantum States
 The code includes the implementation of the 3-qubit W state:
-\[
-|W\rangle = \frac{1}{\sqrt{3}} \left( |001\rangle + |010\rangle + |100\rangle \right)
-\]
+$|W\rangle = \frac{1}{\sqrt{3}} \left( |001\rangle + |010\rangle + |100\rangle \right)$
 Its density matrix is constructed and used as a test case for QST.
 
 ---
