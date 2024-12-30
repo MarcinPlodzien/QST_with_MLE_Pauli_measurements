@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Dec 30 13:34:19 2024
+@author: Marcin Płodzień
+"""
+
 import torch as pt
 import itertools
 import matplotlib.pyplot as plt
